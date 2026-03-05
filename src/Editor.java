@@ -30,11 +30,7 @@ public class Editor extends UsuarioBase {
     }
 
     public Articulo buscarArticulo(int id) {
-            for (Articulo a : articulos) {
-        if (a.getIdArticulo() == id) {
-            return a;
-        }
-    }
+            
     return null;
     }
 }
