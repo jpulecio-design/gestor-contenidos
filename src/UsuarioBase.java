@@ -32,4 +32,13 @@ public abstract class UsuarioBase {
     public void setRolUsuario(String rolUsuario) {
         this.rolUsuario = rolUsuario;
     }
+
+    public boolean esEditor() {
+        return this.rolUsuario.equals("EDITOR");
+    }
+
+    public boolean esLector() {
+        return this.rolUsuario.equals("LECTOR");
+    }
 }
+
