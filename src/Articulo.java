@@ -13,7 +13,6 @@ public class Articulo {
     private ArrayList<Comentario> comentarios;
     private ArrayList<HistorialModificacion> historial;
 
-
     public Articulo(int idArticulo, String tituloArticulo, String contenidoTextual, Editor editor, Lector lector) {
         this.idArticulo = idArticulo;
         this.tituloArticulo = tituloArticulo;
@@ -106,5 +105,16 @@ public class Articulo {
     public void setHistorial(ArrayList<HistorialModificacion> historial) {
         this.historial = historial;
     }
-    
+
+    public void editarEnBorrador(String contenido) {
+        if (this.estadoArticulo == EstadoArticulo.BORRADOR) {
+            this.contenidoTextual = contenido;
+        } else {
+            System.out.println("Solo se puede editar en estado BORRADOR");
+        }
+    }
+
+    public boolean validarLongitud() {
+        return tituloArticulo.length() <= 120 && contenidoTextual.length() <= 10000;
+    }
 }
