@@ -32,4 +32,32 @@ public class Comentario {
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
-}    
+
+    public Lector getLector() {
+        return lector;
+    }
+
+    public void setLector(Lector lector) {
+        this.lector = lector;
+    }
+
+    public Articulo getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
+    }
+
+    public boolean validarLongitud() {
+        return caracteresMaximo.length() <= 200;
+    }
+
+    public void guardarComentario() {
+        if (validarLongitud()) {
+            System.out.println("Comentario guardado: " + caracteresMaximo);
+        } else {
+            System.out.println("No se puede guardar, excede 200 caracteres");
+        }
+    }
+}
