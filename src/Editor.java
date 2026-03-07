@@ -8,7 +8,7 @@ public class Editor extends UsuarioBase {
         this.articulos = new ArrayList<>();
     }
 
-    public ArrayList<Articulo> getArticulos() {
+     public ArrayList<Articulo> getArticulos() {
         return articulos;
     }
 
@@ -16,21 +16,34 @@ public class Editor extends UsuarioBase {
         this.articulos = articulos;
     }
 
-    public static void crearArticulo(Articulo articulo) {
+    public void crearArticulo(Articulo articulo) {
+        try {
+            articulos.add(articulo);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
-    public static void editarArticulo(Articulo articulo) {
+    public void editarArticulo(Articulo articulo) {
+        articulo.editarEnBorrador(articulo.getContenidoTextual());
     }
 
-    public static void publicarArticulo(Articulo articulo) {
+    public void publicarArticulo(Articulo articulo) {
+        articulo.setEstadoArticulo(EstadoArticulo.PUBLICADO);
+        articulo.setFechaPublicacion(new java.util.Date());
     }
 
-    public  int incrementarIdArticulo() {
-        return idUsuario;
+    public int incrementarIdArticulo() {
+        return articulos.size() + 1;
     }
 
     public Articulo buscarArticulo(int id) {
-            
-    return null;
+        for (Articulo articulo : articulos) {
+            if (articulo.getIdArticulo() == id) {
+                return articulo;
+            }
+        }
+        return null;
     }
 }
