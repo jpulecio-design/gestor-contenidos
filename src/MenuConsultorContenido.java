@@ -5,18 +5,18 @@ public class MenuConsultorContenido {
     private Editor editor;
     private Lector lector;
     private UsuarioBase usuarioActivo;
-    private AccionEditor accionesEditor;
-    private AccionLector accionesLector;
-    private AccionComun accionesComunes;
+    private AccionEditor accionEditor;
+    private AccionLector accionLector;
+    private AccionComun accionComun;
 
     public MenuConsultorContenido() {
         this.scanner = new Scanner(System.in);
         this.editor = new Editor(1, "Pendiente", "EDITOR");
         this.lector = new Lector(2, "Pendiente", "LECTOR");
         this.usuarioActivo = seleccionarUsuario();
-        this.accionesEditor = new AccionEditor(scanner, editor, lector);
-        this.accionesLector = new AccionLector(scanner, editor, lector);
-        this.accionesComunes = new AccionComun(scanner, editor, usuarioActivo);
+        this.accionEditor = new AccionEditor(scanner, editor, lector);
+        this.accionLector = new AccionLector(scanner, editor, lector);
+        this.accionComun = new AccionComun(scanner, editor, usuarioActivo);
     }
 
     private UsuarioBase seleccionarUsuario() {
@@ -60,7 +60,7 @@ public class MenuConsultorContenido {
     }
 
     private void mostrarMenu() {
-        System.out.println("\n===== CMS - Gestion de Contenidos =====");
+        System.out.println("\n======= Menu Gestion de Contenidos =======");
         System.out.println("Usuario: " + usuarioActivo.getNombreUsuario()
                 + " | Rol: " + usuarioActivo.getRolUsuario());
         System.out.println("1. Crear articulo         (Editor)");
@@ -88,32 +88,32 @@ public class MenuConsultorContenido {
     private boolean procesarOpcion(int opcion) {
         switch (opcion) {
             case 1:
-                validarYEjecutarEditor(() -> accionesEditor.crearArticulo());
+                validarYEjecutarEditor(() -> accionEditor.crearArticulo());
                 break;
             case 2:
-                validarYEjecutarEditor(() -> accionesEditor.editarArticulo());
+                validarYEjecutarEditor(() -> accionEditor.editarArticulo());
                 break;
             case 3:
-                validarYEjecutarEditor(() -> accionesEditor.publicarArticulo());
+                validarYEjecutarEditor(() -> accionEditor.publicarArticulo());
                 break;
             case 4:
-                validarYEjecutarEditor(() -> accionesEditor.archivarArticulo());
+                validarYEjecutarEditor(() -> accionEditor.archivarArticulo());
                 break;
             case 5:
-                accionesComunes.listarArticulos();
+                accionComun.listarArticulos();
                 break;
             case 6:
-                accionesComunes.verComentarios();
+                accionComun.verComentarios();
                 break;
             case 7:
-                validarYEjecutarLector(() -> accionesLector.agregarComentario());
+                validarYEjecutarLector(() -> accionLector.agregarComentario());
                 break;
             case 8:
-                accionesComunes.buscarArticulo();
+                accionComun.buscarArticulo();
                 break;
             case 9:
                 usuarioActivo = seleccionarUsuario();
-                accionesComunes.setUsuarioActivo(usuarioActivo);
+                accionComun.setUsuarioActivo(usuarioActivo);
                 break;
             case 0:
                 System.out.println("Cerrando sistema...");

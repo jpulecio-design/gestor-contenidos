@@ -3,7 +3,7 @@ import java.util.Date;
 public class Comentario {
     private String caracteresMaximo;
     private Date fechaCreacion;
-    private Lector lector;
+    private Lector lector;                                      
     private Articulo articulo;
 
     public Comentario(Articulo articulo, String caracteresMaximo, Date fechaCreacion, Lector lector) {
