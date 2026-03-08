@@ -36,4 +36,9 @@ public class Editor extends UsuarioBase {
         }
         return null;
     }
+
+    @Override
+    public String describirRol() {
+        return "Editor: puede crear, editar, publicar y archivar articulos.";
+    }
 }

@@ -63,6 +63,7 @@ public class MenuConsultorContenido {
         System.out.println("\n======= Menu Gestion de Contenidos =======");
         System.out.println("Usuario: " + usuarioActivo.getNombreUsuario()
                 + " | Rol: " + usuarioActivo.getRolUsuario());
+        System.out.println(usuarioActivo.describirRol());
         System.out.println("1. Crear articulo         (Editor)");
         System.out.println("2. Editar articulo        (Editor - solo BORRADOR)");
         System.out.println("3. Publicar articulo      (Editor)");
@@ -74,6 +75,7 @@ public class MenuConsultorContenido {
         System.out.println("9. Cambiar de rol");
         System.out.println("0. Salir");
         System.out.print("Opcion: ");
+        
     }
 
     private int leerOpcion() {

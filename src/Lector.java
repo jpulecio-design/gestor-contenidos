@@ -12,8 +12,8 @@ public class Lector extends UsuarioBase {
         return null;
     }
 
-    public void agregarComentario(Comentario comentario){
-        
+    public void agregarComentario(Comentario comentario) {
+
     }
 
     public ArrayList<Articulo> getArticulos() {
@@ -23,5 +23,10 @@ public class Lector extends UsuarioBase {
     public void setArticulos(ArrayList<Articulo> articulos) {
         this.articulos = articulos;
     }
-    
+
+    @Override
+    public String describirRol() {
+        return "Lector: puede consultar articulos publicados y comentarlos.";
+    }
+
 }

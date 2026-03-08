@@ -40,4 +40,7 @@ public abstract class UsuarioBase {
     public boolean esLector() {
         return this.rolUsuario.equals("LECTOR");
     }
+
+    public abstract String describirRol();
+
 }
