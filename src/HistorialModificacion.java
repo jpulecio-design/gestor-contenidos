@@ -45,10 +45,4 @@ public class HistorialModificacion {
     public void setEstadoAnterior(EstadoArticulo estadoAnterior) {
         this.estadoAnterior = estadoAnterior;
     }
-
-    public void guardarHistorial() {
-        System.out.println("Historial - Autor: " + autorModificacion
-                + " | Estado anterior: " + estadoAnterior
-                + " | Fecha: " + fechaModificacion);
-    }
 }

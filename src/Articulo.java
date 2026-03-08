@@ -105,16 +105,4 @@ public class Articulo {
     public void setHistorial(ArrayList<HistorialModificacion> historial) {
         this.historial = historial;
     }
-
-    public void editarEnBorrador(String contenido) {
-        if (this.estadoArticulo == EstadoArticulo.BORRADOR) {
-            this.contenidoTextual = contenido;
-        } else {
-            System.out.println("Solo se puede editar en estado BORRADOR");
-        }
-    }
-
-    public boolean validarLongitud() {
-        return tituloArticulo.length() <= 120 && contenidoTextual.length() <= 10000;
-    }
 }

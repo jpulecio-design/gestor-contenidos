@@ -18,7 +18,7 @@ public class AccionComun {
     public void listarArticulos() {
         try {
             if (editor.getArticulos().isEmpty()) {
-                System.out.println("No hay artículos registrados.");
+                System.out.println("No hay articulos registrados.");
                 return;
             }
 
@@ -26,10 +26,10 @@ public class AccionComun {
             for (Articulo articulo : editor.getArticulos()) {
                 if (usuarioActivo.esLector()
                         && articulo.getEstadoArticulo() != EstadoArticulo.PUBLICADO) {
-                    continue;// consultar
+                    continue; //si no esta lo salta al siguientes articulo sin mostrarlo
                 }
                 hayArticulos = true;
-                System.out.println("\n--- Artículo ---");
+                System.out.println("\n--- Articulo ---");
                 System.out.println("ID       : " + articulo.getIdArticulo());
                 System.out.println("Título   : " + articulo.getTituloArticulo());
                 System.out.println("Contenido: " + articulo.getContenidoTextual());
@@ -47,7 +47,7 @@ public class AccionComun {
             }
 
             if (!hayArticulos) {
-                System.out.println("No hay artículos publicados disponibles.");
+                System.out.println("No hay articulos publicados disponibles.");
             }
         } catch (Exception e) {
             System.out.println("Error al listar: " + e.getMessage());
@@ -57,27 +57,27 @@ public class AccionComun {
     public void verComentarios() {
         try {
             if (editor.getArticulos().isEmpty()) {
-                System.out.println("No hay artículos registrados.");
+                System.out.println("No hay articulos registrados.");
                 return;
             }
 
-            System.out.print("ID del artículo: ");
+            System.out.print("ID del articulo: ");
             int id = Integer.parseInt(scanner.nextLine());
             Articulo articulo = editor.buscarArticulo(id);
 
             if (articulo == null) {
-                System.out.println("Artículo no encontrado.");
+                System.out.println("Articulo no encontrado.");
                 return;
             }
 
             if (usuarioActivo.esLector()
                     && articulo.getEstadoArticulo() != EstadoArticulo.PUBLICADO) {
-                System.out.println("Acceso denegado: el artículo no está publicado.");
+                System.out.println("Acceso denegado: el articulo no esta publicado.");
                 return;
             }
 
             if (articulo.getComentarios().isEmpty()) {
-                System.out.println("Este artículo no tiene comentarios.");
+                System.out.println("Este articulo no tiene comentarios.");
                 return;
             }
 
@@ -96,11 +96,11 @@ public class AccionComun {
     public void buscarArticulo() {
         try {
             if (editor.getArticulos().isEmpty()) {
-                System.out.println("No hay artículos registrados para buscar.");
+                System.out.println("No hay articulos registrados para buscar.");
                 return;
             }
 
-            System.out.print("Palabra a buscar en título o contenido: ");
+            System.out.print("Palabra a buscar en titulo o contenido: ");
             String palabra = scanner.nextLine().toLowerCase();
 
             boolean encontrado = false;
@@ -112,7 +112,7 @@ public class AccionComun {
                 if (articulo.getTituloArticulo().toLowerCase().contains(palabra)
                         || articulo.getContenidoTextual().toLowerCase().contains(palabra)) {
                     System.out.println("\nID       : " + articulo.getIdArticulo());
-                    System.out.println("Título   : " + articulo.getTituloArticulo());
+                    System.out.println("Titulo   : " + articulo.getTituloArticulo());
                     System.out.println("Contenido: " + articulo.getContenidoTextual());
                     System.out.println("Estado   : " + articulo.getEstadoArticulo());
                     encontrado = true;
@@ -120,10 +120,10 @@ public class AccionComun {
             }
 
             if (!encontrado) {
-                System.out.println("No se encontraron artículos con la palabra: " + palabra);
+                System.out.println("No se encontraron articulos con la palabra: " + palabra);
             }
         } catch (Exception e) {
-            System.out.println("Error en búsqueda: " + e.getMessage());
+            System.out.println("Error en busqueda: " + e.getMessage());
         }
     }
 }

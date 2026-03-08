@@ -8,7 +8,7 @@ public class Editor extends UsuarioBase {
         this.articulos = new ArrayList<>();
     }
 
-     public ArrayList<Articulo> getArticulos() {
+    public ArrayList<Articulo> getArticulos() {
         return articulos;
     }
 
@@ -20,18 +20,8 @@ public class Editor extends UsuarioBase {
         try {
             articulos.add(articulo);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
-
-    public void editarArticulo(Articulo articulo) {
-        articulo.editarEnBorrador(articulo.getContenidoTextual());
-    }
-
-    public void publicarArticulo(Articulo articulo) {
-        articulo.setEstadoArticulo(EstadoArticulo.PUBLICADO);
-        articulo.setFechaPublicacion(new java.util.Date());
     }
 
     public int incrementarIdArticulo() {

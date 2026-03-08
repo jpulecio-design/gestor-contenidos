@@ -20,12 +20,16 @@ public class MenuConsultorContenido {
     }
 
     private UsuarioBase seleccionarUsuario() {
-        System.out.println("\n===== Selección de Rol =====");
+        System.out.println("\n===== Seleccion de Rol =====");
         System.out.println("1. Editor");
         System.out.println("2. Lector");
-        System.out.print("Opción: ");
+        System.out.print("Opcion: ");
         try {
             int opcion = Integer.parseInt(scanner.nextLine());
+            if (opcion != 1 && opcion != 2) {
+                System.out.println("Opcion no valida. Oprima 1 para Editor o 2 para Lector.");
+                return seleccionarUsuario();
+            }
             System.out.print("Ingresa tu nombre: ");
             String nombre = scanner.nextLine();
             if (opcion == 1) {
@@ -40,9 +44,8 @@ public class MenuConsultorContenido {
                 return lector;
             }
         } catch (NumberFormatException e) {
-            System.out.println("Rol no válido, ingresando como Lector.");
-            lector.setNombreUsuario("Invitado");
-            return lector;
+            System.out.println("Opcion no valida. Oprima 1 para Editor o 2 para Lector.");
+            return seleccionarUsuario();
         }
     }
 
@@ -57,27 +60,27 @@ public class MenuConsultorContenido {
     }
 
     private void mostrarMenu() {
-        System.out.println("\n===== CMS - Gestión de Contenidos =====");
+        System.out.println("\n===== CMS - Gestion de Contenidos =====");
         System.out.println("Usuario: " + usuarioActivo.getNombreUsuario()
                 + " | Rol: " + usuarioActivo.getRolUsuario());
-        System.out.println("1. Crear artículo         [Editor]");
-        System.out.println("2. Editar artículo        [Editor - solo BORRADOR]");
-        System.out.println("3. Publicar artículo      [Editor]");
-        System.out.println("4. Archivar artículo      [Editor - solo PUBLICADO]");
-        System.out.println("5. Listar artículos       [Todos]");
-        System.out.println("6. Ver comentarios        [Todos]");
-        System.out.println("7. Agregar comentario     [Lector]");
-        System.out.println("8. Buscar por palabra     [Todos]");
+        System.out.println("1. Crear articulo         (Editor)");
+        System.out.println("2. Editar articulo        (Editor - solo BORRADOR)");
+        System.out.println("3. Publicar articulo      (Editor)");
+        System.out.println("4. Archivar articulo      (Editor - solo PUBLICADO)");
+        System.out.println("5. Listar articulos       (Todos)");
+        System.out.println("6. Ver comentarios        (Todos)");
+        System.out.println("7. Agregar comentario     (Lector)");
+        System.out.println("8. Buscar por palabra     (Todos)");
         System.out.println("9. Cambiar de rol");
         System.out.println("0. Salir");
-        System.out.print("Opción: ");
+        System.out.print("Opcion: ");
     }
 
     private int leerOpcion() {
         try {
             return Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println("Error: ingresa un número válido.");
+            System.out.println("Error: ingresa un numero valido.");
             return -1;
         }
     }
@@ -116,14 +119,14 @@ public class MenuConsultorContenido {
                 System.out.println("Cerrando sistema...");
                 return false;
             default:
-                System.out.println("Opción no válida.");
+                System.out.println("Opcion no valida.");
         }
         return true;
     }
 
     private void validarYEjecutarEditor(Runnable accion) {
         if (!usuarioActivo.esEditor()) {
-            System.out.println("Acceso denegado: solo un Editor puede realizar esta acción.");
+            System.out.println("Acceso denegado: solo un Editor puede realizar esta accion.");
             return;
         }
         accion.run();
@@ -131,7 +134,7 @@ public class MenuConsultorContenido {
 
     private void validarYEjecutarLector(Runnable accion) {
         if (!usuarioActivo.esLector()) {
-            System.out.println("Acceso denegado: solo un Lector puede realizar esta acción.");
+            System.out.println("Acceso denegado: solo un Lector puede realizar esta accion.");
             return;
         }
         accion.run();

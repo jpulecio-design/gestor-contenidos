@@ -12,33 +12,43 @@ public class AccionLector {
         this.lector = lector;
     }
 
+    private boolean validarLongitudComentario(String texto) {
+        return texto.length() <= 200;
+    }
+
     public void agregarComentario() {
         try {
             if (editor.getArticulos().isEmpty()) {
-                System.out.println("No hay artículos disponibles para comentar.");
+                System.out.println("No hay articulos disponibles para comentar.");
                 return;
             }
 
-            System.out.print("ID del artículo a comentar: ");
+            System.out.print("ID del articulo a comentar: ");
             int id = Integer.parseInt(scanner.nextLine());
             Articulo articuloAcomentar = editor.buscarArticulo(id);
 
             if (articuloAcomentar == null) {
-                System.out.println("Artículo no encontrado.");
+                System.out.println("Articulo no encontrado.");
                 return;
             }
 
             if (articuloAcomentar.getEstadoArticulo() != EstadoArticulo.PUBLICADO) {
-                System.out.println("Solo se pueden comentar artículos PUBLICADOS.");
+                System.out.println("Solo se pueden comentar articulos PUBLICADOS.");
                 return;
             }
 
             System.out.print("Comentario: ");
             String texto = scanner.nextLine();
+
+            if (!validarLongitudComentario(texto)) {
+                System.out.println("El comentario excede 200 caracteres.");
+                return;
+            }
+
             Comentario nuevoComentario = new Comentario(articuloAcomentar, texto, new Date(), lector);
-            nuevoComentario.guardarComentario();
             articuloAcomentar.getComentarios().add(nuevoComentario);
             lector.agregarComentario(nuevoComentario);
+            System.out.println("Comentario guardado.");
         } catch (Exception e) {
             System.out.println("Error al comentar: " + e.getMessage());
         }

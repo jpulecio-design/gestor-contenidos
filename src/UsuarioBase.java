@@ -41,4 +41,3 @@ public abstract class UsuarioBase {
         return this.rolUsuario.equals("LECTOR");
     }
 }
-

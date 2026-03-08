@@ -18,11 +18,7 @@ public class Comentario {
     }
 
     public void setCaracteresMaximo(String caracteresMaximo) {
-        if (caracteresMaximo.length() <= 200) {
-            this.caracteresMaximo = caracteresMaximo;
-        } else {
-            System.out.println("El comentario excede 200 caracteres");
-        }
+        this.caracteresMaximo = caracteresMaximo;
     }
 
     public Date getFechaCreacion() {
@@ -47,17 +43,5 @@ public class Comentario {
 
     public void setArticulo(Articulo articulo) {
         this.articulo = articulo;
-    }
-
-    public boolean validarLongitud() {
-        return caracteresMaximo.length() <= 200;
-    }
-
-    public void guardarComentario() {
-        if (validarLongitud()) {
-            System.out.println("Comentario guardado: " + caracteresMaximo);
-        } else {
-            System.out.println("No se puede guardar, excede 200 caracteres");
-        }
     }
 }
