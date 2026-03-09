@@ -1,4 +1,9 @@
+package accion;
 import java.util.Scanner;
+
+import modelo.Editor;
+import modelo.Lector;
+import modelo.UsuarioBase;
 
 public class MenuConsultorContenido {
     private Scanner scanner;

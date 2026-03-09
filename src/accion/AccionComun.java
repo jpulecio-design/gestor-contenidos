@@ -1,4 +1,12 @@
+package accion;
 import java.util.Scanner;
+
+import modelo.Articulo;
+import modelo.Comentario;
+import modelo.Editor;
+import modelo.EstadoArticulo;
+import modelo.HistorialModificacion;
+import modelo.UsuarioBase;
 
 public class AccionComun {
     private Scanner scanner;

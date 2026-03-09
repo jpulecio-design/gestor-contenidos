@@ -1,5 +1,12 @@
+package accion;
 import java.util.Date;
 import java.util.Scanner;
+
+import modelo.Articulo;
+import modelo.Editor;
+import modelo.EstadoArticulo;
+import modelo.HistorialModificacion;
+import modelo.Lector;
 
 public class AccionEditor {
     private Scanner scanner;

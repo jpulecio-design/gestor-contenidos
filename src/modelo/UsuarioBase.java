@@ -1,3 +1,4 @@
+package modelo;
 public abstract class UsuarioBase {
     protected int idUsuario;
     protected String nombreUsuario;
