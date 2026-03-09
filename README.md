@@ -4,9 +4,9 @@ Proyecto para la materia de Estructura de Datos - Unimayor.
 
 ## ¿Que hace?
 
-Sistema que permite gestionar artículos científicos digitales con roles de usuario.
-Los editores pueden crear, editar, publicar y archivar artículos.
-Los lectores pueden consultar artículos publicados y comentarlos.
+Sistema que permite gestionar artIculos cientIficos digitales con roles de usuario.
+Los editores pueden crear, editar, publicar y archivar artIculos.
+Los lectores pueden consultar artIculos publicados y comentarlos.
 
 ## Estructura
 ```
