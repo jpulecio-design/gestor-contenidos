@@ -2,11 +2,18 @@
 
 Proyecto para la materia de Estructura de Datos - Unimayor.
 
+## Integrantes
+
+- Karen Daniela Ramirez
+- Luis Miguel Lenis
+- Juan Andres Pulecio
+-Juan Esteban Garcia
+
 ## ¿Que hace?
 
-Sistema que permite gestionar artIculos cientIficos digitales con roles de usuario.
-Los editores pueden crear, editar, publicar y archivar artIculos.
-Los lectores pueden consultar artIculos publicados y comentarlos.
+Sistema que permite gestionar articulos cientificos digitales con roles de usuario.
+Los editores pueden crear, editar, publicar y archivar articulos.
+Los lectores pueden consultar articulos publicados y comentarlos.
 
 ## Estructura
 ```

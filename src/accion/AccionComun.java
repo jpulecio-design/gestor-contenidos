@@ -1,4 +1,5 @@
 package accion;
+
 import java.util.Scanner;
 
 import modelo.Articulo;
@@ -34,7 +35,7 @@ public class AccionComun {
             for (Articulo articulo : editor.getArticulos()) {
                 if (usuarioActivo.esLector()
                         && articulo.getEstadoArticulo() != EstadoArticulo.PUBLICADO) {
-                    continue; //si no esta lo salta al siguientes articulo sin mostrarlo
+                    continue; // si no esta lo salta al siguientes articulo sin mostrarlo
                 }
                 hayArticulos = true;
                 System.out.println("\n--- Articulo ---");
